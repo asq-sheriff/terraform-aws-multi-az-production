@@ -132,7 +132,7 @@ terraform apply
 
 ## 📝 License
 
-This module is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+This module is licensed under the MIT License. See [LICENSE](../LICENSE) for details.
 
 ## 🤝 Contributing
 

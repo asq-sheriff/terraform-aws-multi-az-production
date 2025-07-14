@@ -26,11 +26,11 @@ resource "aws_subnet" "public" {
 
 # Optional VPC Flow Logs
 resource "aws_flow_log" "main" {
-  count                = var.enable_flow_logs ? 1 : 0
-  iam_role_arn         = aws_iam_role.flow_log[0].arn  # Assume you add IAM role below
-  log_destination      = aws_cloudwatch_log_group.flow_log[0].arn
-  traffic_type         = "ALL"
-  vpc_id               = aws_vpc.main.id
+  count           = var.enable_flow_logs ? 1 : 0
+  iam_role_arn    = aws_iam_role.flow_log[0].arn # Assume you add IAM role below
+  log_destination = aws_cloudwatch_log_group.flow_log[0].arn
+  traffic_type    = "ALL"
+  vpc_id          = aws_vpc.main.id
 }
 
 # Supporting resources for Flow Logs (add these too)
@@ -47,8 +47,8 @@ resource "aws_iam_role" "flow_log" {
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
-      Action = "sts:AssumeRole"
-      Effect = "Allow"
+      Action    = "sts:AssumeRole"
+      Effect    = "Allow"
       Principal = { Service = "vpc-flow-logs.amazonaws.com" }
     }]
   })
