@@ -51,6 +51,8 @@ module "vpc" {
 | `public_subnet_cidrs` | CIDR blocks for public subnets | `list(string)` | `["10.0.1.0/24", "10.0.3.0/24"]` | no |
 | `private_subnet_cidrs` | CIDR blocks for private subnets | `list(string)` | `["10.0.2.0/24", "10.0.4.0/24"]` | no |
 | `map_public_ip` | Whether to auto-assign public IPs to instances in public subnets | `bool` | `false` | no |
+| `enable_flow_logs` | Enable VPC Flow Logs | `bool` | `false` | no |
+| `enable_nacls` | Enable custom Network ACLs | `bool` | `false` | no |
 
 ## 📤 Module Outputs
 
@@ -92,6 +94,8 @@ module "vpc" {
   private_subnet_cidrs = ["10.100.11.0/24", "10.100.12.0/24", "10.100.13.0/24"]
 }
 ```
+### Test Repository
+See this [test repo](https://github.com/asq-sheriff/terraform-aws-multi-az-test) for a full example consuming this module.
 
 ## 🏛️ Architecture Decisions
 
