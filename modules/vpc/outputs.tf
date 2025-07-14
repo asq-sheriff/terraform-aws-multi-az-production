@@ -47,3 +47,13 @@ output "private_route_table_id" {
   description = "ID of the private route table"
   value       = aws_route_table.private.id
 }
+
+output "public_subnet_cidrs" {
+  description = "List of CIDR blocks for public subnets"
+  value       = var.public_subnet_cidrs
+}
+
+output "private_subnet_cidrs" {
+  description = "List of CIDR blocks for private subnets"
+  value       = var.private_subnet_cidrs
+}

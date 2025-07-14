@@ -22,6 +22,18 @@ variable "map_public_ip" {
   default     = false
 }
 
+variable "enable_flow_logs" {
+  description = "Enable VPC Flow Logs"
+  type        = bool
+  default     = false
+}
+
+variable "enable_nacls" {
+  description = "Enable custom Network ACLs"
+  type        = bool
+  default     = false
+}
+
 variable "availability_zones" {
   description = "The availability zones to use."
   type        = list(string)
