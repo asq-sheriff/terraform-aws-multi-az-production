@@ -16,8 +16,45 @@ This module creates:
 - **Route Tables** with proper associations and routing rules
 
 ## 🏗️ Architecture Diagram
+```mermaid
+flowchart TB
+    %% Main VPC Container
+    subgraph VPC["VPC (10.0.0.0/16)"]
+        %% AZ1
+        subgraph AZ1["AZ1 (us-east-1a)"]
+            subgraph Pub1["Public Subnet (10.0.1.0/24)"]
+                NAT[NAT Gateway]
+            end
+            subgraph Priv1["Private Subnet (10.0.2.0/24)"]
+            end
+        end
+        %% AZ2
+        subgraph AZ2["AZ2 (us-east-1b)"]
+            subgraph Pub2["Public Subnet (10.0.3.0/24)"]
+            end
+            subgraph Priv2["Private Subnet (10.0.4.0/24)"]
+            end
+        end
+        IGW[Internet Gateway]
+    end
 
-![VPC Architecture](docs/architecture.png)
+    %% Route tables and Internet connections
+    PubRT[Public Route Table]
+    PrivRT[Private Route Table]
+    Internet[(Internet)]
+
+    %% Connections
+    Pub1 -.-> PubRT
+    Pub2 -.-> PubRT
+    Priv1 -.-> PrivRT
+    Priv2 -.-> PrivRT
+
+    PubRT --> IGW
+    IGW --> Internet
+
+    PrivRT --> NAT
+    NAT --> IGW
+```
 
 ## 📋 Prerequisites
 
