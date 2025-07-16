@@ -15,6 +15,10 @@ This module creates:
 - **1 NAT Gateway** with Elastic IP for secure private subnet egress
 - **Route Tables** with proper associations and routing rules
 
+## 🏗️ Architecture Diagram
+
+![VPC Architecture](docs/architecture.png)
+
 ## 📋 Prerequisites
 
 - Terraform >= 1.0
@@ -22,6 +26,7 @@ This module creates:
 - AWS credentials configured
 - S3 bucket for remote state (optional but recommended)
 - Configure the Terraform backend in main.tf with your own S3 bucket and DynamoDB table (the provided values are placeholders and must be replaced).
+- Copy terraform.tfvars.example to terraform.tfvars and customize values before running terraform apply.
 
 ## 🚀 Quick Start
 
@@ -139,11 +144,12 @@ terraform apply
 This module is licensed under the MIT License. See [LICENSE](../LICENSE) for details.
 
 ## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
 
 ## 👥 Authors
 
 - Aejaz Quaraishi - DevOps - https://github.com/asq-sheriff
 
+## 📜 Changelog
+See [CHANGELOG.md](CHANGELOG.md) for details.
 ---
